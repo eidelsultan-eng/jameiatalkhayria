@@ -549,28 +549,48 @@ ul {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .main-nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--white);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 1rem;
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
     }
 
-    .main-nav.active {
-        display: block;
+    .main-nav {
+        display: block !important;
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        padding: 0;
+        border: none;
     }
 
     .main-nav ul {
-        flex-direction: column;
-        gap: 1.5rem;
+        flex-direction: row;
+        /* Horizontal layout */
+        flex-wrap: wrap;
+        /* Allow wrapping */
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .main-nav li {
+        margin-bottom: 0.5rem;
+    }
+
+    .main-nav a {
+        display: inline-block;
+        font-size: 0.85rem;
+        background-color: #f3f4f6;
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+    }
+
+    .main-nav a.btn-donate {
+        background-color: var(--accent-color);
+        color: var(--white);
     }
 
     .mobile-menu-btn {
-        display: block;
+        display: none !important;
     }
 
     .hero {
@@ -603,6 +623,11 @@ ul {
 
     .why-decoration {
         display: none;
+    }
+
+    .container {
+        width: 95%;
+        padding: 0 0.5rem;
     }
 }
 
@@ -1431,5 +1456,389 @@ ul {
         width: 55px;
         height: 55px;
         font-size: 22px;
+    }
+
+    /* Form Mobile Optimizations */
+    .form-card {
+        padding: 1rem;
+        /* Reduce padding to save space */
+    }
+
+    .questions-grid,
+    .possessions-grid {
+        grid-template-columns: 1fr;
+        /* Force single column for better readability */
+    }
+
+    .q-options.inline-options {
+        flex-direction: column;
+        /* Stack radio buttons vertically */
+        gap: 0.8rem;
+    }
+
+    .inline-input-group {
+        flex-wrap: wrap;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px;
+        /* Prevent IOS zoom */
+    }
+
+    /* Improve table scrolling hint */
+    .table-responsive {
+        position: relative;
+    }
+
+    .table-responsive::after {
+        content: '← اسحب لرؤية المزيد';
+        display: block;
+        text-align: left;
+        font-size: 0.8rem;
+        color: var(--primary-color);
+        margin-top: 0.5rem;
+        opacity: 0.7;
+    }
+}
+
+/* Form Page Styles */
+.form-section {
+    padding-top: 2rem;
+}
+
+.social-form {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.form-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    border-top: 4px solid var(--primary-color);
+}
+
+.form-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--bg-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-family: var(--font-main);
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Question Boxes Grid */
+.questions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.question-box {
+    background: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+}
+
+.question-box.full-width {
+    grid-column: 1 / -1;
+}
+
+.q-label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.q-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.q-options.inline-options {
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+.q-options label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.q-options input[type="radio"] {
+    accent-color: var(--primary-color);
+    width: 1.1em;
+    height: 1.1em;
+}
+
+/* Possessions Grid */
+.possessions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f9fafb;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.checkbox-item:hover {
+    background: #f0fdfa;
+    border-color: var(--primary-color);
+}
+
+.checkbox-item input[type="checkbox"] {
+    accent-color: var(--primary-color);
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.divider {
+    grid-column: 1 / -1;
+    height: 1px;
+    background: #e5e7eb;
+    margin: 1rem 0;
+}
+
+/* Family Table */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.family-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.family-table th,
+.family-table td {
+    padding: 0.8rem;
+    border: 1px solid #e5e7eb;
+    text-align: right;
+}
+
+.family-table th {
+    background: #f3f4f6;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.family-table input,
+.family-table select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+}
+
+.btn-delete {
+    background: #fee2e2;
+    color: #ef4444;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.btn-delete:hover {
+    background: #fecaca;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.ml-1 {
+    margin-right: 1rem;
+}
+
+/* RTL margin-right acts as margin-left visually */
+
+.hidden-field {
+    display: none;
+    background: #f0fdfa;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.alert-box {
+    background: #fffbeb;
+    border: 1px solid #fcd34d;
+    color: #92400e;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    margin-bottom: 2rem;
+}
+
+.alert-box h4 {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.alert-box ul {
+    list-style: disc;
+    padding-right: 1.5rem;
+}
+
+.alert-box li {
+    margin-bottom: 0.5rem;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn-large {
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+}
+
+.inline-input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.inline-input-group input {
+    padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Color overrides for Social Form to differentiate it */
+.social-form {
+    --primary-color: #0c4a6e;
+    /* Sky 900 (Deep Navy) */
+    --accent-color: #0284c7;
+    /* Sky 600 (Bright Blue) */
+    --secondary-color: #075985;
+}
+
+.social-form .form-card {
+    border-top-color: var(--primary-color);
+}
+
+.social-form .checkbox-item:hover,
+.social-form .question-box:hover {
+    background-color: #f0f9ff;
+    /* Light blue background instead of teal */
+    border-color: var(--accent-color);
+}
+
+.social-form .form-group input:focus,
+.social-form .form-group select:focus,
+.social-form .form-group textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+}
+
+.social-form .hidden-field {
+    background-color: #f0fdff;
+}
+
+.social-form .family-table th {
+    background-color: #e0f2fe;
+    /* Light blue header */
+    color: var(--primary-color);
+}
+
+/* Floating Add Button for Family Members - REVERTED to be sticky inside container */
+.sticky-add-btn {
+    width: 100% !important;
+    border-style: dashed !important;
+    position: sticky !important;
+    bottom: 0px;
+    background-color: var(--white) !important;
+    z-index: 90;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05) !important;
+    margin-top: 1rem;
+    left: auto !important;
+    right: auto !important;
+    border-radius: 5px !important;
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    border-width: 2px !important;
+}
+
+.sticky-add-btn:hover {
+    background-color: #f0fdfa !important;
+    transform: none !important;
+}
+
+@media (max-width: 768px) {
+    .sticky-add-btn {
+        bottom: 0px;
     }
 }
