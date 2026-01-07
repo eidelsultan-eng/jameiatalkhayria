@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>استمارة بحث اجتماعي - جمعية الخير</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <h1><i class="fa-solid fa-hand-holding-heart"></i> جمعية الخير</h1>
+                <span class="sub-logo">لتنمية المجتمع بمسير - المشهرة برقم 1899 لسنة 2012</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="index.html#about">من نحن</a></li>
+                    <li><a href="index.html#contact" class="btn-donate">تواصل معنا</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Form Section -->
+    <section class="section form-section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>استمارة بحث اجتماعي</h2>
+                <p>الاستمارة مجانية - ضمان | تكافل | كرامة | تصحر | توطين | أسر مقاتلين | معاش الطفل | تعويضات</p>
+                <div class="line"></div>
+            </div>
+
+            <form id="socialResearchForm" class="social-form">
+
+                <!-- Personal Information -->
+                <div class="form-card">
+                    <h3><i class="fa-solid fa-user-pen"></i> البيانات الأساسية</h3>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>اسم مقدم الطلب (رب الأسرة)</label>
+                            <input type="text" name="applicant_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>العنوان بالتفصيل</label>
+                            <input type="text" name="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label>الرقم القومي (مقدم الطلب)</label>
+                            <input type="text" inputmode="numeric" name="applicant_nid" maxlength="14" required>
+                        </div>
+                        <div class="form-group">
+                            <label>رقم الهاتف</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>اسم الزوج/الزوجة</label>
+                            <input type="text" name="spouse_name">
+                        </div>
+                        <div class="form-group">
+                            <label>الرقم القومي (الزوج/الزوجة)</label>
+                            <input type="text" inputmode="numeric" name="spouse_nid" maxlength="14">
+                        </div>
+                        <div class="form-group">
+                            <label>الوحدة الاجتماعية</label>
+                            <input type="text" name="social_unit">
+                        </div>
+                        <div class="form-group">
+                            <label>الإدارة الاجتماعية</label>
+                            <input type="text" name="social_admin">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section A: Housing Characteristics -->
+                <div class="form-card">
+                    <h3><i class="fa-solid fa-house-chimney"></i> أ. خصائص مسكن الأسرة</h3>
+
+                    <div class="form-group">
+                        <label>عدد حجرات المسكن (تحسب الصالة حجرة)</label>
+                        <input type="number" name="room_count" min="1" style="width: 100px;">
+                    </div>
+
+                    <div class="questions-grid">
+                        <!-- Housing Type -->
+                        <div class="question-box">
+                            <label class="q-label">نوع المسكن</label>
+                            <div class="q-options">
+                                <label><input type="radio" name="house_type" value="فيلا أو أكثر من شقة"> فيلا / أكثر من
+                                    شقة</label>
+                                <label><input type="radio" name="house_type" value="شقة مستقلة"> شقة مستقلة</label>
+                                <label><input type="radio" name="house_type" value="منزل ريفي"> منزل ريفي</label>
+                                <label><input type="radio" name="house_type" value="أخرى"> أخرى</label>
+                            </div>
+                        </div>
+
+                        <!-- Ownership -->
+                        <div class="question-box">
+                            <label class="q-label">ملكية المسكن</label>
+                            <div class="q-options">
+                                <label><input type="radio" name="ownership" value="إيجار"> إيجار</label>
+                                <label><input type="radio" name="ownership" value="تمليك"> تمليك</label>
+                                <label><input type="radio" name="ownership" value="أخرى"> أخرى</label>
+                            </div>
+                        </div>
+
+                        <!-- Walls -->
+                        <div class="question-box">
+                            <label class="q-label">نوع حوائط المسكن</label>
+                            <div class="q-options">
+                                <label><input type="radio" name="walls" value="طوب وأسمنت / مسلح"> طوب وأسمنت /
+                                    مسلح</label>
+                                <label><input type="radio" name="walls" value="أخرى"> أخرى (طين / خشب)</label>
+                            </div>
+                        </div>
+
+                        <!-- Floor -->
+                        <div class="question-box">
+                            <label class="q-label">نوع أرضية السكن</label>
+                            <div class="q-options">
+                                <label><input type="radio" name="floor" value="بلاط / رخام / سيراميك"> بلاط / رخام /
+                                    سيراميك</label>
+                                <label><input type="radio" name="floor" value="ترابية"> ترابية</label>
+                                <label><input type="radio" name="floor" value="خشب / قنالتكس"> خشب / قنالتكس</label>
+                            </div>
+                        </div>
+
+                        <!-- Roof -->
+                        <div class="question-box">
+                            <label class="q-label">نوع سقف السكن</label>
+                            <div class="q-options">
+                                <label><input type="radio" name="roof" value="أسمنت"> أسمنت (مسلح)</label>
+                                <label><input type="radio" name="roof" value="خشب / قنالتكس"> خشب / قنالتكس</label>
+                                <label><input type="radio" name="roof" value="أخرى"> أخرى</label>
+                            </div>
+                        </div>
+
+                        <!-- Water Source -->
+                        <div class="question-box">
+                            <label class="q-label">مصدر المياه</label>
+                            <div class="q-options">
+                                <label><input type="radio" name="water_source" value="شبكة عامة"> شبكة عامة</label>
+                                <label><input type="radio" name="water_source" value="طلمبة"> طلمبة (ارتوازي)</label>
+                                <label><input type="radio" name="water_source" value="أخرى"> أخرى</label>
+                            </div>
+                        </div>
+
+                        <!-- Water Connection -->
+                        <div class="question-box">
+                            <label class="q-label">اتصال السكن بالمياه</label>
+                            <div class="q-options">
+                                <label><input type="radio" name="water_conn" value="حنفية داخل المنزل"> حنفية داخل
+                                    المنزل</label>
+                                <label><input type="radio" name="water_conn" value="حنفية خارج المنزل"> حنفية خارج
+                                    المنزل</label>
+                                <label><input type="radio" name="water_conn" value="غير متصل"> غير متصل</label>
+                            </div>
+                        </div>
+
+                        <!-- Toilet Presence -->
+                        <div class="question-box">
+                            <label class="q-label">وجود دورة مياه</label>
+                            <div class="q-options">
+                                <label><input type="radio" name="toilet_exist" value="خاصة"> خاصة</label>
+                                <label><input type="radio" name="toilet_exist" value="مشتركة"> مشتركة</label>
+                                <label><input type="radio" name="toilet_exist" value="لا يوجد"> لا يوجد</label>
+                            </div>
+                        </div>
+
+                        <!-- Toilet Type -->
+                        <div class="question-box">
+                            <label class="q-label">نوع دورة المياه</label>
+                            <div class="q-options">
+                                <label><input type="radio" name="toilet_type" value="أفرنجي سيفون"> أفرنجي سيفون</label>
+                                <label><input type="radio" name="toilet_type" value="بلدي سيفون"> بلدي سيفون</label>
+                                <label><input type="radio" name="toilet_type" value="بلدي بدون سيفون"> بلدي بدون
+                                    سيفون</label>
+                                <label><input type="radio" name="toilet_type" value="أخرى"> أخرى / جردل</label>
+                            </div>
+                        </div>
+
+                        <!-- Sewage -->
+                        <div class="question-box">
+                            <label class="q-label">الاتصال بالصرف الصحي</label>
+                            <div class="q-options">
+                                <label><input type="radio" name="sewage" value="شبكة عامة"> شبكة عامة</label>
+                                <label><input type="radio" name="sewage" value="شبكة خاصة"> شبكة خاصة (أهالي)</label>
+                                <label><input type="radio" name="sewage" value="ترنش"> ترنش</label>
+                                <label><input type="radio" name="sewage" value="لا يوجد"> لا يوجد</label>
+                            </div>
+                        </div>
+
+                        <!-- Kitchen -->
+                        <div class="question-box">
+                            <label class="q-label">وجود مطبخ</label>
+                            <div class="q-options">
+                                <label><input type="radio" name="kitchen" value="خاصة"> خاصة</label>
+                                <label><input type="radio" name="kitchen" value="مشتركة"> مشتركة</label>
+                                <label><input type="radio" name="kitchen" value="لا يوجد"> لا يوجد</label>
+                            </div>
+                        </div>
+
+                        <!-- Cooking Fuel -->
+                        <div class="question-box">
+                            <label class="q-label">نوع الوقود المستخدم</label>
+                            <div class="q-options">
+                                <label><input type="radio" name="fuel" value="بوتاجاز"> بوتاجاز</label>
+                                <label><input type="radio" name="fuel" value="غاز طبيعي"> غاز طبيعي</label>
+                                <label><input type="radio" name="fuel" value="كروسين"> كروسين</label>
+                                <label><input type="radio" name="fuel" value="أخرى"> أخرى</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ration Card Special -->
+                    <div class="question-box full-width mt-2">
+                        <label class="q-label">هل توجد لدى الأسرة بطاقة تموين مميكنة؟</label>
+                        <div class="q-options inline-options">
+                            <label><input type="radio" name="ration_card" value="نعم" onclick="toggleRation(true)">
+                                نعم</label>
+                            <label><input type="radio" name="ration_card" value="لا" onclick="toggleRation(false)">
+                                لا</label>
+                            <label><input type="radio" name="ration_card" value="مقيد ببطاقة الوالد"
+                                    onclick="toggleRation(false)"> مقيد ببطاقة أحد الوالدين</label>
+                        </div>
+                        <div id="rationDetails" class="hidden-field mt-1">
+                            <label>رقم بطاقة التموين:</label>
+                            <input type="text" inputmode="numeric" name="ration_number" maxlength="16">
+                            <label class="ml-1">اسم مكتب التموين:</label>
+                            <input type="text" name="ration_office">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section B: Possessions -->
+                <div class="form-card">
+                    <h3><i class="fa-solid fa-boxes-stacked"></i> ب. ممتلكات الأسرة</h3>
+                    <div class="possessions-grid">
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="ثلاجة">
+                            ثلاجة</label>
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="ديب فريزر"> ديب
+                            فريزر</label>
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="تكييف">
+                            تكييف</label>
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="غسالة عادية"> غسالة
+                            عادية</label>
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="غسالة أتوماتيك">
+                            غسالة أتوماتيك</label>
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="بوتجاز">
+                            بوتجاز</label>
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="سخان مياه"> سخان
+                            مياه</label>
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="تلفزيون ملون">
+                            تلفزيون ملون</label>
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="دش / وصلة"> دش /
+                            وصلة نت</label>
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="كمبيوتر / لابتوب">
+                            كمبيوتر / لابتوب</label>
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="موبايل سمارت">
+                            موبايل سمارت</label>
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="تليفون أرضي">
+                            تليفون أرضي</label>
+
+                        <div class="divider"></div>
+
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="سيارة خاصة"> سيارة
+                            خاصة</label>
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="تاكسي / ميكروباص">
+                            تاكسي / ميكروباص</label>
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="نصف نقل"> نصف
+                            نقل</label>
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="جرار زراعي"> جرار
+                            زراعي</label>
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="توكتوك / موتوسيكل">
+                            توكتوك / موتوسيكل</label>
+
+                        <div class="divider"></div>
+
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="أرض زراعية"> أرض
+                            زراعية</label>
+                        <div class="inline-input-group">
+                            <label>عدد القراريط:</label>
+                            <input type="number" name="land_amount" style="width: 80px;">
+                        </div>
+
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="روؤس ماشية"> روؤس
+                            ماشية</label>
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="أغنام / ماعز">
+                            أغنام / ماعز</label>
+                        <label class="checkbox-item"><input type="checkbox" name="possession" value="طيور داجنة"> طيور
+                            داجنة (مشروع)</label>
+                    </div>
+                </div>
+
+                <!-- Section D: Family Members -->
+                <div class="form-card">
+                    <h3><i class="fa-solid fa-users"></i> ج. جميع أفراد الأسرة المقيمين معاً</h3>
+                    <p class="hint">يشمل الزوج والزوجة والأبناء وغيرهم إن وجد</p>
+
+                    <div class="table-responsive">
+                        <table class="family-table" id="familyTable">
+                            <thead>
+                                <tr>
+                                    <th>الاسم</th>
+                                    <th>القرابة</th>
+                                    <th>الرقم القومي (أن وجد)</th>
+                                    <th>الحالة التعليمية</th>
+                                    <th>الحالة العملية</th>
+                                    <th>حذف</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Rows will be added dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <button type="button" class="btn btn-outline btn-sm sticky-add-btn" onclick="addFamilyRow()">
+                        <i class="fa-solid fa-plus"></i> إضافة فرد
+                    </button>
+                </div>
+
+                <!-- Section C: Support -->
+                <div class="form-card">
+                    <h3><i class="fa-solid fa-hand-holding-dollar"></i> د. موارد الدعم الحالية</h3>
+
+                    <div class="question-box full-width">
+                        <label class="q-label">هل رب الأسرة يعمل بالخارج؟</label>
+                        <div class="q-options inline-options">
+                            <label><input type="radio" name="work_abroad" value="نعم"> نعم</label>
+                            <label><input type="radio" name="work_abroad" value="لا"> لا</label>
+                        </div>
+                    </div>
+
+                    <div class="question-box full-width mt-1">
+                        <label class="q-label">هل أحد أفراد الأسرة مستفيد من برامج الدعم النقدي
+                            (تكافل/كرامة/معاش)؟</label>
+                        <div class="q-options inline-options">
+                            <label><input type="radio" name="cash_support" value="نعم" onclick="toggleSupport(true)">
+                                نعم</label>
+                            <label><input type="radio" name="cash_support" value="لا" onclick="toggleSupport(false)">
+                                لا</label>
+                        </div>
+                        <div id="supportDetails" class="hidden-field mt-1">
+                            <label>أسماء المستفيدين:</label>
+                            <textarea name="beneficiaries" rows="2" placeholder="الاسم ونوع الدعم..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+
+        <!-- Section: Additional Details -->
+        <div class="form-card">
+            <h3><i class="fa-solid fa-pen-to-square"></i> إضافة تفاصيل أخرى</h3>
+            <div class="form-group">
+                <label>هل تود إضافة أي ملاحظات أو تفاصيل أخرى للجمعية؟</label>
+                <textarea name="additional_notes" rows="4"
+                    placeholder="اكتب هنا أي تفاصيل إضافية تريد توضيحها..."></textarea>
+            </div>
+        </div>
+
+        <!-- Documents Warning -->
+        <div class="alert-box">
+            <h4><i class="fa-solid fa-file-circle-check"></i> المستندات المطلوبة (عند التقديم الورقي):</h4>
+            <ul>
+                <li>صورة بطاقة الرقم القومي (سارية) للزوج والزوجة.</li>
+                <li>صور شهادات الميلاد للأبناء (كمبيوتر).</li>
+                <li>صورة قسيمة الزواج / الطلاق / شهادة الوفاة.</li>
+                <li>إفادات المدارس للأبناء.</li>
+                <li>آخر إيصال كهرباء.</li>
+            </ul>
+        </div>
+
+        <!-- Submit -->
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-large">
+                <i class="fa-solid fa-paper-plane"></i> إرسال البيانات (واتساب)
+            </button>
+            <p class="mt-1" style="color: var(--text-light); font-size: 0.9rem; margin-top: 1rem;">سنقوم بمراجعة
+                البحث والرد عليكم في اقرب وقت</p>
+        </div>
+
+        </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; 2024 جمعية الخير لتنمية المجتمع بمسير</p>
+                <p class="designer-credit">تصميم المهندس احمد عمرو ابوالحاج <span dir="ltr">01001352771</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle Ration Field
+        function toggleRation(show) {
+            document.getElementById('rationDetails').style.display = show ? 'block' : 'none';
+        }
+
+        // Toggle Support Field
+        function toggleSupport(show) {
+            document.getElementById('supportDetails').style.display = show ? 'block' : 'none';
+        }
+
+        // Dynamic Family Table
+        function addFamilyRow() {
+            const tbody = document.querySelector('#familyTable tbody');
+            const row = document.createElement('tr');
+
+            row.innerHTML = `
+                <td><input type="text" placeholder="الاسم الرباعي" required></td>
+                <td>
+                    <select>
+                        <option value="زوج/ة">زوج/ة</option>
+                        <option value="ابن/ة">ابن/ة</option>
+                        <option value="أب/أم">أب/أم</option>
+                        <option value="أخ/أخت">أخ/أخت</option>
+                        <option value="حفيد/ة">حفيد/ة</option>
+                    </select>
+                </td>
+                <td><input type="text" placeholder="الرقم القومي او الميلاد"></td>
+                <td>
+                    <select>
+                        <option value="دون سن التعليم">دون سن التعليم</option>
+                        <option value="أمي">أمي</option>
+                        <option value="يقرأ ويكتب">يقرأ ويكتب</option>
+                        <option value="ابتدائي">ابتدائي</option>
+                        <option value="عدادي">إعدادي</option>
+                        <option value="ثانوي">ثانوي / دبلوم</option>
+                        <option value="جامعي">جامعي</option>
+                    </select>
+                </td>
+                <td>
+                     <select>
+                        <option value="لا يعمل">لا يعمل</option>
+                        <option value="يعمل">يعمل</option>
+                        <option value="طالب">طالب</option>
+                        <option value="ربة منزل">ربة منزل</option>
+                        <option value="بالخارج">بالخارج</option>
+                    </select>
+                </td>
+                <td><button type="button" class="btn-delete" onclick="this.closest('tr').remove()"><i class="fa-solid fa-trash"></i></button></td>
+            `;
+            tbody.appendChild(row);
+        }
+
+        // Add initial row
+        addFamilyRow();
+
+        // Form Submit to WhatsApp
+        document.getElementById('socialResearchForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            // Replace logic to send EVERYTHING
+            let text = "*استمارة بحث اجتماعي جديدة*\n\n";
+
+            // 1. البيانات الأساسية
+            text += "*البيانات الأساسية:*\n";
+            text += `اسم مقدم الطلب (رب الأسرة): ${formData.get('applicant_name') || '-'}\n`;
+            text += `العنوان بالتفصيل: ${formData.get('address') || '-'}\n`;
+            text += `الرقم القومي (مقدم الطلب): ${formData.get('applicant_nid') || '-'}\n`;
+            text += `رقم الهاتف: ${formData.get('phone') || '-'}\n`;
+            text += `اسم الزوج/الزوجة: ${formData.get('spouse_name') || '-'}\n`;
+            text += `الرقم القومي (الزوج/الزوجة): ${formData.get('spouse_nid') || '-'}\n`;
+            text += `الوحدة الاجتماعية: ${formData.get('social_unit') || '-'}\n`;
+            text += `الإدارة الاجتماعية: ${formData.get('social_admin') || '-'}\n\n`;
+
+            // 2. خصائص السكن
+            text += "*أ. خصائص مسكن الأسرة:*\n";
+            text += `عدد حجرات المسكن: ${formData.get('room_count') || '-'}\n`;
+            text += `نوع المسكن: ${formData.get('house_type') || '-'}\n`;
+            text += `ملكية المسكن: ${formData.get('ownership') || '-'}\n`;
+            text += `نوع حوائط المسكن: ${formData.get('walls') || '-'}\n`;
+            text += `نوع أرضية السكن: ${formData.get('floor') || '-'}\n`;
+            text += `نوع سقف السكن: ${formData.get('roof') || '-'}\n`;
+            text += `مصدر المياه: ${formData.get('water_source') || '-'}\n`;
+            text += `اتصال السكن بالمياه: ${formData.get('water_conn') || '-'}\n`;
+            text += `وجود دورة مياه: ${formData.get('toilet_exist') || '-'}\n`;
+            text += `نوع دورة المياه: ${formData.get('toilet_type') || '-'}\n`;
+            text += `الاتصال بالصرف الصحي: ${formData.get('sewage') || '-'}\n`;
+            text += `وجود مطبخ: ${formData.get('kitchen') || '-'}\n`;
+            text += `نوع الوقود المستخدم: ${formData.get('fuel') || '-'}\n`;
+
+            // Ration
+            text += `هل توجد بطاقة تموين؟: ${formData.get('ration_card') || '-'}\n`;
+            if (formData.get('ration_card') === 'نعم') {
+                text += `رقم بطاقة التموين: ${formData.get('ration_number') || '-'} | مكتب: ${formData.get('ration_office') || '-'}\n`;
+            }
+            text += "\n";
+
+            // 3. الممتلكات
+            text += "*ب. ممتلكات الأسرة:*\n";
+            const possessions = formData.getAll('possession');
+            if (possessions.length > 0) {
+                text += `الأجهزة والممتلكات: ${possessions.join(' - ')}\n`;
+            } else {
+                text += "لا يوجد ممتلكات محددة\n";
+            }
+            if (formData.get('land_amount')) text += `أرض زراعية (عدد القراريط): ${formData.get('land_amount')}\n`;
+            text += "\n";
+
+            // 4. Family Members
+            text += "*ج. أفراد الأسرة المقيمين معاً:*\n";
+            const rows = document.querySelectorAll('#familyTable tbody tr');
+            let hasFamily = false;
+            if (rows.length > 0) {
+                rows.forEach((row, index) => {
+                    const inputs = row.querySelectorAll('input, select');
+                    // Check if name is filled
+                    if (inputs[0].value) {
+                        hasFamily = true;
+                        text += `فرد (${index + 1}):\n`;
+                        text += `- الاسم: ${inputs[0].value}\n`;
+                        text += `- القرابة: ${inputs[1].value}\n`;
+                        text += `- الرقم القومي/الميلاد: ${inputs[2].value || '-'}\n`;
+                        text += `- التعليم: ${inputs[3].value}\n`;
+                        text += `- العمل: ${inputs[4].value}\n`;
+                        text += "----------------\n";
+                    }
+                });
+            }
+            if (!hasFamily) text += "لم يتم تسجيل أفراد\n";
+            text += "\n";
+
+            // 5. Support
+            text += "*د. موارد الدعم الحالية:*\n";
+            text += `هل رب الأسرة يعمل بالخارج؟: ${formData.get('work_abroad') || '-'}\n`;
+            text += `هل أحد أفراد الأسرة مستفيد من دعم نقدي؟: ${formData.get('cash_support') || '-'}\n`;
+            if (formData.get('cash_support') === 'نعم') {
+                text += `أسماء المستفيدين من الدعم: ${formData.get('beneficiaries') || '-'}\n`;
+            }
+
+            // Additional Notes
+            const notes = formData.get('additional_notes');
+            if (notes && notes.trim() !== '') {
+                text += "\n📝 *تفاصيل أخرى:*\n";
+                text += `${notes}\n`;
+            }
+
+            // Redirect to WhatsApp - use encodeURIComponent strictly for the value
+            const waNumber = "201008932324";
+            window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`, '_blank');
+        });
+    </script>
+</body>
+
+</html>
