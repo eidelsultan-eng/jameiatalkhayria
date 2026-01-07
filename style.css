@@ -1546,7 +1546,7 @@ ul {
 .form-group input,
 .form-group select,
 .form-group textarea {
-    width: 100%;
+    width: 100% !important;
     padding: 0.8rem;
     border: 1px solid #d1d5db;
     border-radius: 0.5rem;

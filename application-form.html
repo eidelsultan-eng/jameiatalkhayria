@@ -14,7 +14,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.1">
 </head>
 
 <body>
@@ -470,83 +470,86 @@
             e.preventDefault();
 
             const formData = new FormData(this);
-            // Replace logic to send EVERYTHING
+            // Replace logic to send EVERYTHING in Table Format
             let text = "*استمارة بحث اجتماعي جديدة*\n\n";
 
-            // 1. البيانات الأساسية
-            text += "*البيانات الأساسية:*\n";
-            text += `اسم مقدم الطلب (رب الأسرة): ${formData.get('applicant_name') || '-'}\n`;
-            text += `العنوان بالتفصيل: ${formData.get('address') || '-'}\n`;
-            text += `الرقم القومي (مقدم الطلب): ${formData.get('applicant_nid') || '-'}\n`;
-            text += `رقم الهاتف: ${formData.get('phone') || '-'}\n`;
-            text += `اسم الزوج/الزوجة: ${formData.get('spouse_name') || '-'}\n`;
-            text += `الرقم القومي (الزوج/الزوجة): ${formData.get('spouse_nid') || '-'}\n`;
-            text += `الوحدة الاجتماعية: ${formData.get('social_unit') || '-'}\n`;
-            text += `الإدارة الاجتماعية: ${formData.get('social_admin') || '-'}\n\n`;
+            // 1. البيانات الأســـاســـية
+            text += "📍 *البيانات الأساسية:*\n";
+            text += "```\n";
+            text += `الاسم   : ${formData.get('applicant_name') || '-'}\n`;
+            text += `العنوان : ${formData.get('address') || '-'}\n`;
+            text += `تليفون  : ${formData.get('phone') || '-'}\n`;
+            text += `ر.ق (ط) : ${formData.get('applicant_nid') || '-'}\n`;
+            text += `الزوج/ة : ${formData.get('spouse_name') || '-'}\n`;
+            text += `ر.ق (ز) : ${formData.get('spouse_nid') || '-'}\n`;
+            text += `الوحدة  : ${formData.get('social_unit') || '-'}\n`;
+            text += `الإدارة : ${formData.get('social_admin') || '-'}\n`;
+            text += "```\n\n";
 
-            // 2. خصائص السكن
-            text += "*أ. خصائص مسكن الأسرة:*\n";
-            text += `عدد حجرات المسكن: ${formData.get('room_count') || '-'}\n`;
-            text += `نوع المسكن: ${formData.get('house_type') || '-'}\n`;
-            text += `ملكية المسكن: ${formData.get('ownership') || '-'}\n`;
-            text += `نوع حوائط المسكن: ${formData.get('walls') || '-'}\n`;
-            text += `نوع أرضية السكن: ${formData.get('floor') || '-'}\n`;
-            text += `نوع سقف السكن: ${formData.get('roof') || '-'}\n`;
-            text += `مصدر المياه: ${formData.get('water_source') || '-'}\n`;
-            text += `اتصال السكن بالمياه: ${formData.get('water_conn') || '-'}\n`;
-            text += `وجود دورة مياه: ${formData.get('toilet_exist') || '-'}\n`;
-            text += `نوع دورة المياه: ${formData.get('toilet_type') || '-'}\n`;
-            text += `الاتصال بالصرف الصحي: ${formData.get('sewage') || '-'}\n`;
-            text += `وجود مطبخ: ${formData.get('kitchen') || '-'}\n`;
-            text += `نوع الوقود المستخدم: ${formData.get('fuel') || '-'}\n`;
+            // 2. خصائص السكـــن
+            text += "🏠 *خصائص المسكن:*\n";
+            text += "```\n";
+            text += `الغرف: ${formData.get('room_count')} | الملكية: ${formData.get('ownership')}\n`;
+            text += `النوع: ${formData.get('house_type')}\n`;
+            text += `الحوائط: ${formData.get('walls')}\n`;
+            text += `الأرضية: ${formData.get('floor')}\n`;
+            text += `السقف: ${formData.get('roof')}\n`;
+            text += `مياه: ${formData.get('water_source')} (${formData.get('water_conn')})\n`;
+            text += `حمام: ${formData.get('toilet_exist')} (${formData.get('toilet_type')})\n`;
+            text += `صرف: ${formData.get('sewage')} | مطبخ: ${formData.get('kitchen')}\n`;
+            text += `وقود: ${formData.get('fuel')}\n`;
+            text += "```\n";
 
             // Ration
-            text += `هل توجد بطاقة تموين؟: ${formData.get('ration_card') || '-'}\n`;
+            text += "💳 *التموين:*\n";
+            text += "```\n";
+            text += `بطاقة: ${formData.get('ration_card') || '-'}\n`;
             if (formData.get('ration_card') === 'نعم') {
-                text += `رقم بطاقة التموين: ${formData.get('ration_number') || '-'} | مكتب: ${formData.get('ration_office') || '-'}\n`;
+                text += `رقم: ${formData.get('ration_number') || '-'} (مكتب: ${formData.get('ration_office') || '-'})\n`;
             }
-            text += "\n";
+            text += "```\n\n";
 
-            // 3. الممتلكات
-            text += "*ب. ممتلكات الأسرة:*\n";
+            // 3. الممتلـــكات
+            text += "📺 *الممتلكات:*\n";
             const possessions = formData.getAll('possession');
             if (possessions.length > 0) {
-                text += `الأجهزة والممتلكات: ${possessions.join(' - ')}\n`;
+                text += "```\n";
+                text += possessions.join('، ') + "\n";
+                text += "```\n";
             } else {
-                text += "لا يوجد ممتلكات محددة\n";
+                text += "لا يوجد\n";
             }
-            if (formData.get('land_amount')) text += `أرض زراعية (عدد القراريط): ${formData.get('land_amount')}\n`;
+            if (formData.get('land_amount')) text += `🌾 أرض زراعية: ${formData.get('land_amount')} قيراط\n`;
             text += "\n";
 
             // 4. Family Members
-            text += "*ج. أفراد الأسرة المقيمين معاً:*\n";
+            text += "👨‍👩‍👧‍👦 *أفراد الأسرة:*\n";
             const rows = document.querySelectorAll('#familyTable tbody tr');
-            let hasFamily = false;
             if (rows.length > 0) {
+                text += "```\n";
                 rows.forEach((row, index) => {
                     const inputs = row.querySelectorAll('input, select');
-                    // Check if name is filled
                     if (inputs[0].value) {
-                        hasFamily = true;
-                        text += `فرد (${index + 1}):\n`;
-                        text += `- الاسم: ${inputs[0].value}\n`;
-                        text += `- القرابة: ${inputs[1].value}\n`;
-                        text += `- الرقم القومي/الميلاد: ${inputs[2].value || '-'}\n`;
-                        text += `- التعليم: ${inputs[3].value}\n`;
-                        text += `- العمل: ${inputs[4].value}\n`;
-                        text += "----------------\n";
+                        // Format: #1 Name
+                        //         Relation | Education
+                        //         Job
+                        text += `#${index + 1}: ${inputs[0].value}\n`;
+                        text += `    ${inputs[1].value} | ${inputs[3].value}\n`;
+                        text += `    ${inputs[4].value}\n`;
+                        text += "------------------\n";
                     }
                 });
+                text += "```\n";
+            } else {
+                text += "لم يتم تسجيل أفراد\n\n";
             }
-            if (!hasFamily) text += "لم يتم تسجيل أفراد\n";
-            text += "\n";
 
             // 5. Support
-            text += "*د. موارد الدعم الحالية:*\n";
-            text += `هل رب الأسرة يعمل بالخارج؟: ${formData.get('work_abroad') || '-'}\n`;
-            text += `هل أحد أفراد الأسرة مستفيد من دعم نقدي؟: ${formData.get('cash_support') || '-'}\n`;
+            text += "💰 *الدعم:*\n";
+            text += `عمل بالخارج: ${formData.get('work_abroad') || '-'}\n`;
+            text += `دعم نقدي: ${formData.get('cash_support') || '-'}\n`;
             if (formData.get('cash_support') === 'نعم') {
-                text += `أسماء المستفيدين من الدعم: ${formData.get('beneficiaries') || '-'}\n`;
+                text += `المستفيد: ${formData.get('beneficiaries') || '-'}\n`;
             }
 
             // Additional Notes
