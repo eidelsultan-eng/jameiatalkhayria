@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>استمارة تطوع - جمعية الخير</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css?v=1.2">
+    <style>
+        /* Critical Form Styles Override */
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100% !important;
+            padding: 0.8rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            background-color: #fff;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .form-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border-top: 4px solid var(--primary-color, #0d9488);
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.4rem;
+            transition: background 0.3s;
+        }
+
+        .checkbox-item:hover {
+            background: #f3f4f6;
+        }
+
+        .checkbox-item input {
+            width: auto !important;
+        }
+
+        .hidden-field {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 0.5rem;
+            border: 1px dashed #cbd5e1;
+        }
+
+        .agreement-section {
+            background: #f0fdfa;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid #99f6e4;
+            margin-top: 1rem;
+        }
+
+        .agreement-item {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            color: #0f766e;
+        }
+
+        @media (max-width: 768px) {
+
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <h1><i class="fa-solid fa-hand-holding-heart"></i> جمعية الخير</h1>
+                <span class="sub-logo">لتنمية المجتمع بمسير - المتطوعين</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="index.html#about">من نحن</a></li>
+                    <li><a href="application-form.html">استمارة البحث</a></li>
+                    <li><a href="volunteer-form.html">انضم كمتطوع</a></li>
+                    <li><a href="index.html#contact" class="btn-donate">تواصل معنا</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Form Section -->
+    <section class="section form-section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>استمارة طلب تطوع</h2>
+                <p>نشكركم على رغبتكم في التطوع لخدمة المجتمع من خلال جمعية الخير لتنمية المجتمع بمسير</p>
+                <div class="line"></div>
+            </div>
+
+            <form id="volunteerForm" class="social-form">
+
+                <!-- Personal Information -->
+                <div class="form-card">
+                    <h3><i class="fa-solid fa-user-tag"></i> البيانات الشخصية</h3>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>الاسم الكامل</label>
+                            <input type="text" name="full_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>تاريخ الميلاد</label>
+                            <input type="date" name="birth_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>الجنس</label>
+                            <select name="gender" required>
+                                <option value="">اختر...</option>
+                                <option value="ذكر">ذكر</option>
+                                <option value="أنثى">أنثى</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>الرقم القومي / جواز السفر</label>
+                            <input type="text" name="id_number" required>
+                        </div>
+                        <div class="form-group">
+                            <label>الجنسية</label>
+                            <input type="text" name="nationality" value="مصري">
+                        </div>
+                        <div class="form-group">
+                            <label>الحالة الاجتماعية</label>
+                            <select name="marital_status">
+                                <option value="أعزب">أعزب</option>
+                                <option value="متزوج">متزوج</option>
+                                <option value="أخرى">أخرى</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>العنوان بالتفصيل</label>
+                            <input type="text" name="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label>المدينة / المنطقة</label>
+                            <input type="text" name="city" value="مسير">
+                        </div>
+                        <div class="form-group">
+                            <label>رقم الهاتف / واتساب</label>
+                            <input type="tel" name="phone" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alternative Contact -->
+                <div class="form-card">
+                    <h3><i class="fa-solid fa-address-book"></i> بيانات التواصل البديلة</h3>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>هاتف بديل</label>
+                            <input type="tel" name="alt_phone">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience & Skills -->
+                <div class="form-card">
+                    <h3><i class="fa-solid fa-graduation-cap"></i> معلومات الخبرة والمهارات</h3>
+
+                    <div class="form-group">
+                        <label>هل لديك خبرة سابقة في التطوع؟</label>
+                        <div class="q-options inline-options">
+                            <label><input type="radio" name="experience_exist" value="نعم"
+                                    onclick="toggleField('expDetails', true)"> نعم</label>
+                            <label><input type="radio" name="experience_exist" value="لا"
+                                    onclick="toggleField('expDetails', false)" checked> لا</label>
+                        </div>
+                        <div id="expDetails" class="hidden-field">
+                            <label>اذكر تفاصيل الخبرة السابقة:</label>
+                            <textarea name="experience_text" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label>مجالات التطوع المفضلة: (اختر ما ينطبق)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item"><input type="checkbox" name="interests" value="تنظيم فعاليات">
+                                تنظيم فعاليات</label>
+                            <label class="checkbox-item"><input type="checkbox" name="interests" value="جمع تبرعات"> جمع
+                                تبرعات</label>
+                            <label class="checkbox-item"><input type="checkbox" name="interests" value="توصيل مساعدات">
+                                توصيل مساعدات</label>
+                            <label class="checkbox-item"><input type="checkbox" name="interests"
+                                    value="تهيئة واستقبال المستفيدين"> استقبال مستفيدين</label>
+                            <label class="checkbox-item"><input type="checkbox" name="interests"
+                                    value="إعداد مواد توعوية"> مواد توعوية</label>
+                            <label class="checkbox-item"><input type="checkbox" name="interests" value="تعليم وتدريب">
+                                تعليم وتدريب</label>
+                            <label class="checkbox-item"><input type="checkbox" name="interests" value="دعم إداري"> دعم
+                                إداري</label>
+                            <label class="checkbox-item"><input type="checkbox" name="interests" value="أخرى">
+                                أخرى</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label>المهارات واللغات التي تتقنها</label>
+                        <textarea name="skills" rows="2"
+                            placeholder="مثال: كمبيوتر، لغة إنجليزية، تصوير، قيادة..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Availability -->
+                <div class="form-card">
+                    <h3><i class="fa-solid fa-clock"></i> التفرغ والوقت الزمني</h3>
+                    <div class="grid-3">
+                        <div class="form-group">
+                            <label>عدد الساعات أسبوعياً</label>
+                            <input type="number" name="hours_per_week" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label>الأيام المقترحة</label>
+                            <input type="text" name="suggested_days" placeholder="مثال: الجمعة والسبت">
+                        </div>
+                        <div class="form-group">
+                            <label>الفترة المفضلة (من تاريخ)</label>
+                            <input type="date" name="start_date">
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label>هل لديك أي قيود صحية تحتاج لمراعاة؟</label>
+                        <div class="q-options inline-options">
+                            <label><input type="radio" name="health_issue" value="نعم"
+                                    onclick="toggleField('healthDetails', true)"> نعم</label>
+                            <label><input type="radio" name="health_issue" value="لا"
+                                    onclick="toggleField('healthDetails', false)" checked> لا</label>
+                        </div>
+                        <div id="healthDetails" class="hidden-field">
+                            <label>الرجاء الإفادة بالتفصيل:</label>
+                            <textarea name="health_text" rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Commitments -->
+                <div class="form-card">
+                    <h3><i class="fa-solid fa-file-signature"></i> الشروط والالتزامات</h3>
+                    <div class="agreement-section">
+                        <div class="agreement-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>ألتزم بالعمل وفق سياسات الجمعية وأخلاقياتها.</span>
+                        </div>
+                        <div class="agreement-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>ألتزم بسرية المعلومات والبيانات التي سأطلع عليها.</span>
+                        </div>
+                        <div class="agreement-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>أوافق على حضور التدريب المسبق وارتداء الزي المخصص.</span>
+                        </div>
+                        <div class="agreement-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>أتعهد بإبلاغ الجمعية عن أي تغير في حالتي الصحية أو التفرغ.</span>
+                        </div>
+                        <label class="checkbox-item mt-1" style="color: var(--primary-color); font-weight: bold;">
+                            <input type="checkbox" required> أوافق على جميع الشروط المذكورة أعلاه
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Approval & Signature -->
+                <div class="form-card">
+                    <h3><i class="fa-solid fa-signature"></i> التأكيد والإرسال</h3>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>الاسم الثلاثي (كأنك توقع)</label>
+                            <input type="text" name="signature" required placeholder="اكتب اسمك للموافقة">
+                        </div>
+                        <div class="form-group">
+                            <label>تاريخ اليوم</label>
+                            <input type="date" name="today_date" id="today_date" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documents Required Warning -->
+                <div class="alert-box"
+                    style="background: #fffbeb; border: 1px solid #fde68a; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 2rem;">
+                    <h4 style="color: #92400e; margin-bottom: 0.8rem;"><i
+                            class="fa-solid fa-file-circle-exclamation"></i> مستندات يجب إحضارها لمقر الجمعية:</h4>
+                    <ul style="list-style: none; padding: 0; color: #92400e;">
+                        <li style="margin-bottom: 0.5rem;"><i class="fa-solid fa-check"
+                                style="margin-left: 0.5rem;"></i> صورة شخصية</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="fa-solid fa-check"
+                                style="margin-left: 0.5rem;"></i> صورة البطاقة</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="fa-solid fa-check"
+                                style="margin-left: 0.5rem;"></i> شهادات التعليم (إن وُجدت)</li>
+                    </ul>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fa-solid fa-paper-plane"></i> إرسال طلب التطوع (واتساب)
+                    </button>
+                    <p class="mt-1" style="color: var(--text-light); font-size: 0.9rem; margin-top: 1rem;">سيتم التواصل
+                        معكم فور مراجعة طلبكم</p>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; 2024 جمعية الخير لتنمية المجتمع بمسير</p>
+                <p class="designer-credit">تصميم المهندس احمد عمرو ابوالحاج <span dir="ltr">01001352771</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set today's date
+        document.getElementById('today_date').valueAsDate = new Date();
+
+        // Toggle Fields
+        function toggleField(id, show) {
+            document.getElementById(id).style.display = show ? 'block' : 'none';
+        }
+
+        // Form Submit to WhatsApp
+        document.getElementById('volunteerForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            let text = "*طلب انضمام لمتطوع جديد*\n\n";
+
+            // 1. البيانات الشخصية
+            text += "👤 *البيانات الشخصية:*\n";
+            text += "```\n";
+            text += `الاسم      : ${formData.get('full_name')}\n`;
+            text += `الميلاد    : ${formData.get('birth_date')}\n`;
+            text += `الجنس      : ${formData.get('gender')}\n`;
+            text += `الرقم القومي: ${formData.get('id_number')}\n`;
+            text += `الجنسية    : ${formData.get('nationality')}\n`;
+            text += `الحالة     : ${formData.get('marital_status')}\n`;
+            text += `العنوان    : ${formData.get('address')}\n`;
+            text += `المدينة     : ${formData.get('city')}\n`;
+            text += `الهاتف     : ${formData.get('phone')}\n`;
+            text += "```\n\n";
+
+            // 2. تواصل بديل
+            text += "📞 *تواصل بديل:*\n";
+            text += "```\n";
+            text += `هاتف بديل : ${formData.get('alt_phone') || '-'}\n`;
+            text += "```\n\n";
+
+            // 3. الخبرة والمهارات
+            text += "🎓 *الخبرة والمهارات:*\n";
+            text += `خبرة سابقة: ${formData.get('experience_exist')}\n`;
+            if (formData.get('experience_exist') === 'نعم') {
+                text += `التفاصيل: ${formData.get('experience_text')}\n`;
+            }
+            text += `المهارات: ${formData.get('skills') || '-'}\n`;
+
+            const interests = formData.getAll('interests');
+            text += `مجالات الاهتمام: ${interests.join('، ') || 'لا يوجد'}\n\n`;
+
+            // 4. التفرغ
+            text += "⏰ *التفرغ والوقت:*\n";
+            text += "```\n";
+            text += `ساعات/أسبوع : ${formData.get('hours_per_week') || '-'}\n`;
+            text += `الأيام المقترحة: ${formData.get('suggested_days') || '-'}\n`;
+            text += `البداية من   : ${formData.get('start_date') || '-'}\n`;
+            text += "```\n\n";
+
+            // 5. التوقيع
+            text += "✍️ *الموافقة والتوقيع:*\n";
+            text += `الاسم: ${formData.get('signature')}\n`;
+            text += `التاريخ: ${formData.get('today_date')}\n`;
+
+            // Redirect to WhatsApp
+            const waNumber = "201008932324";
+            window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`, '_blank');
+        });
+    </script>
+</body>
+
+</html>
